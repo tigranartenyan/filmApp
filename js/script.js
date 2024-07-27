@@ -19,10 +19,10 @@ const DB = {
     private: false
 };
 
-
 rememberAndCreateUserFilms();
 detectUserPersonalLevel();
-checkDBPrivateStatus(DB);
+userFavoriteGenres();
+checkDBPrivateStatus(DB.private);
 
 function rememberAndCreateUserFilms() {
     for(let i = 0; i < 2; i++) {
@@ -54,4 +54,11 @@ function detectUserPersonalLevel() {
 
 function checkDBPrivateStatus(state) {
     state ? console.log("Sorry but DB isn't visible") : console.log(DB);
+}
+
+function userFavoriteGenres() {
+    for(let i = 0; i < 3; i++) { 
+        const filmGenre = prompt(`Ձեր նախընտրելի ժանրը ${i + 1}`);
+        DB.genre[i] = filmGenre;
+    }
 }
