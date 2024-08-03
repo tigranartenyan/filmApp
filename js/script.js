@@ -19,11 +19,6 @@ const DB = {
     private: false
 };
 
-rememberAndCreateUserFilms();
-detectUserPersonalLevel();
-userFavoriteGenres();
-checkDBPrivateStatus(DB.private);
-
 function rememberAndCreateUserFilms() {
     for(let i = 0; i < 2; i++) {
         const filmName = prompt("Ո՞ր ֆիլմն եք վերջերս դիտել");
@@ -57,8 +52,12 @@ function checkDBPrivateStatus(state) {
 }
 
 function userFavoriteGenres() {
-    for(let i = 0; i < 3; i++) { 
-        const filmGenre = prompt(`Ձեր նախընտրելի ժանրը ${i + 1}`);
-        DB.genre[i] = filmGenre;
+    for(let i = 0; i < 2; i++) { 
+        DB.genres.push(prompt(`Ձեր նախընտրելի ժանրը ${i + 1}`));
     }
 }
+
+rememberAndCreateUserFilms();
+userFavoriteGenres();
+detectUserPersonalLevel();
+checkDBPrivateStatus(DB.private);
